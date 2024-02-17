@@ -20,6 +20,18 @@ class SMSActivateAPI:
             return float(res.text.split(':')[1])
         return res.status_code
 
+    def get_operators(self, country=None):
+        '''Получить доступных операторов, РФ=0, Украина=1, Казахстан=2'''
+        params = {
+            'api_key': self.__api_key,
+            'action': 'getOperators',
+            'country': country,
+        }
+        res = requests.post(self.__base_url, params=params)
+        if res.status_code == 200:
+            return json.loads(res.text)
+        return res.status_code
+
     def get_numbers_status(self, country=None, operator=None):
         '''Получить кол-во свободных номеров'''
         params = {

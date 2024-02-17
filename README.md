@@ -20,7 +20,8 @@
 
 ### Пример использования:
 
-```api_key = "your_api_key"
+```python
+api_key = "your_api_key"
 api = SMSActivateAPI(api_key)
 
 balance = api.get_balance()

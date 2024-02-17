@@ -13,6 +13,9 @@ print(count_of_num)
 balance = sms_activate.get_balance()
 print(balance)
 
+operator = sms_activate.get_operators(0)
+print(', '.join(operator['countryOperators'][0]))
+
 if int(count_of_num['fb_0']) > 0 and balance >= 5:
     id, num = sms_activate.get_number('fb', 'any')
     print(f'Получили номер: {num}')
